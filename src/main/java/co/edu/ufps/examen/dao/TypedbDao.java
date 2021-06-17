@@ -7,7 +7,7 @@ import co.edu.ufps.examen.entities.Typedb;
 public interface TypedbDao {
 	public void insertar(Typedb typedb);
 	public void actualizar(Typedb typedb);
-	public void eliminar(Integer id);
-	public Typedb buscar(Integer id);
+	public void eliminar(String id);
+	public Typedb buscar(String id);
 	public List<Typedb> mostrarTodos();
 }
