@@ -28,6 +28,9 @@
 				<option value="1">Administrador</option>
 				<option value="2">Usuario</option>
 			</select>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+			
 		</form>
 	</section>
 </body>

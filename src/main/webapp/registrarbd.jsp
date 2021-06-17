@@ -36,6 +36,9 @@
 					type="text" class="form-control" id="adicional" name="adicional"
 					placeholder="Informacion adicional del tipo de base de datos" required>
 			</div>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+			
 		</form>
 	</section>
 </body>
