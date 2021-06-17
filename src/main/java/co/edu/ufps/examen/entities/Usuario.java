@@ -105,4 +105,46 @@ public class Usuario  {
 		this.rol = rol;
 	}
 
+	public Usuario(int id, String email, String pass, short state, String usuario,
+			List<Connectiontoken> connectiontokens, Rol rol) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.pass = pass;
+		this.state = state;
+		this.usuario = usuario;
+		this.connectiontokens = connectiontokens;
+		this.rol = rol;
+	}
+
+	public Usuario(int id, String email, String pass, short state, String usuario, Rol rol) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.pass = pass;
+		this.state = state;
+		this.usuario = usuario;
+		this.rol = rol;
+	}
+
+	public Usuario(int id, String email, String pass, String usuario) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.pass = pass;
+		this.usuario = usuario;
+	}
+
+	public Usuario(String email, String pass, short state, String usuario, Rol rol) {
+		super();
+		this.email = email;
+		this.pass = pass;
+		this.state = state;
+		this.usuario = usuario;
+		this.rol = rol;
+	}
+	
+	
+	
+
 }

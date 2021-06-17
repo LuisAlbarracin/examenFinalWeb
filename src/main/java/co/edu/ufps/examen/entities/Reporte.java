@@ -116,4 +116,32 @@ public class Reporte  {
 		return seguimiento;
 	}
 
+	public Reporte(int id, Timestamp datecreate, String description, String file, String name, String state,
+			Connectiontoken connectiontoken) {
+		super();
+		this.id = id;
+		this.datecreate = datecreate;
+		this.description = description;
+		this.file = file;
+		this.name = name;
+		this.state = state;
+		this.connectiontoken = connectiontoken;
+	}
+
+	public Reporte(Timestamp datecreate, String description, String file, String name, String state,
+			Connectiontoken connectiontoken) {
+		super();
+		this.datecreate = datecreate;
+		this.description = description;
+		this.file = file;
+		this.name = name;
+		this.state = state;
+		this.connectiontoken = connectiontoken;
+	}
+	
+	
+	
+	
+	
+
 }

@@ -62,4 +62,32 @@ public class Rol  {
 		return usuario;
 	}
 
+	public Rol(int id, String description, List<Usuario> usuarios) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.usuarios = usuarios;
+	}
+
+	public Rol(int id, String description) {
+		super();
+		this.id = id;
+		this.description = description;
+	}
+
+	public Rol(int id) {
+		super();
+		this.id = id;
+	}
+
+	public Rol(String description) {
+		super();
+		this.description = description;
+	}
+	
+	
+	
+	
+	
+
 }

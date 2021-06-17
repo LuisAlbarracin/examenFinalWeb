@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import co.edu.ufps.examen.entities.Connectiontoken;
 import co.edu.ufps.examen.util.ConexionMySQLJPA;
 
-public class ConnectiontolenDaoJPA implements ConnectiontokenDao {
+public class ConnectiontokenDaoJPA implements ConnectiontokenDao {
 
 	@Override
 	public void insertar(Connectiontoken connectiontoken) {
