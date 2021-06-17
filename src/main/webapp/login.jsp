@@ -9,18 +9,11 @@
 	rel="stylesheet"
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
-<title>Registrar Usuario</title>
+<title>Iniciar Session</title>
 </head>
 <body>
-
-
-	<section>
+<section>
 		<form>
-			<div class="mb-3">
-				<label for="usuario" class="form-label">Usuario</label> <input
-					type="text" class="form-control" id="usuario" name="usuario"
-					placeholder="Nombre usuario">
-			</div>
 			<div class="mb-3">
 				<label for="email" class="form-label">Email</label> <input
 					type="email" class="form-control" id="email" name="email"
