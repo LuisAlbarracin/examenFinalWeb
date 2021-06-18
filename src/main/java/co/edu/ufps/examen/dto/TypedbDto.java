@@ -2,7 +2,7 @@ package co.edu.ufps.examen.dto;
 
 import java.io.Serializable;
 
-public class TypedbDao implements Serializable {
+public class TypedbDto implements Serializable {
 
 	/**
 	 * 
@@ -13,7 +13,7 @@ public class TypedbDao implements Serializable {
 	private String driver;
 	private String aditional;
 
-	public TypedbDao(String id, String description, String driver, String aditional) {
+	public TypedbDto(String id, String description, String driver, String aditional) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -21,11 +21,11 @@ public class TypedbDao implements Serializable {
 		this.aditional = aditional;
 	}
 
-	public TypedbDao() {
+	public TypedbDto() {
 		super();
 	}
 
-	public TypedbDao(String id) {
+	public TypedbDto(String id) {
 		super();
 		this.id = id;
 	}
@@ -65,5 +65,15 @@ public class TypedbDao implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+	public TypedbDto(String description, String driver, String aditional) {
+		super();
+		this.description = description;
+		this.driver = driver;
+		this.aditional = aditional;
+	}
+	
+	
 
 }

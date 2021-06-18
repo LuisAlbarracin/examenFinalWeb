@@ -82,4 +82,21 @@ public class Typedb  {
 		return connectiontoken;
 	}
 
+	public Typedb(String id, String aditional, String description, String driver) {
+		super();
+		this.id = id;
+		this.aditional = aditional;
+		this.description = description;
+		this.driver = driver;
+	}
+
+	public Typedb(String aditional, String description, String driver) {
+		super();
+		this.aditional = aditional;
+		this.description = description;
+		this.driver = driver;
+	}
+	
+	
+
 }

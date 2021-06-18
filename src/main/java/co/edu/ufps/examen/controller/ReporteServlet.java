@@ -3,19 +3,14 @@ package co.edu.ufps.examen.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 import co.edu.ufps.examen.dao.ConnectiontokenDao;
 import co.edu.ufps.examen.dao.ConnectiontokenDaoJPA;
 import co.edu.ufps.examen.dao.ReporteDao;
 import co.edu.ufps.examen.dao.ReporteDaoJPA;
-import co.edu.ufps.examen.dao.RolDaoJPA;
-import co.edu.ufps.examen.dao.UsuarioDaoJPA;
 import co.edu.ufps.examen.entities.Connectiontoken;
 import co.edu.ufps.examen.entities.Reporte;
-import co.edu.ufps.examen.entities.Rol;
-import co.edu.ufps.examen.entities.Usuario;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -118,8 +113,7 @@ public class ReporteServlet extends HttpServlet {
 		String name = request.getParameter("nombre");
 		
 		Connectiontoken conexion = this.connectiontokenDao.buscar(conexionId);
-		@SuppressWarnings("deprecation")
-		Timestamp fechacreacion = new Timestamp(1990, 11, 2, 0, 0, 0, 0);
+		Timestamp fechacreacion = Timestamp.valueOf(datecreate);
 		
 		Reporte reporte = new Reporte( id, fechacreacion, descripcion, file,  name, state, conexion);
 		this.reporteDao.actualizar(reporte);
@@ -149,8 +143,7 @@ public class ReporteServlet extends HttpServlet {
 		String name = request.getParameter("nombre");
 		
 		Connectiontoken conexion = this.connectiontokenDao.buscar(conexionId);
-		@SuppressWarnings("deprecation")
-		Timestamp fechacreacion = new Timestamp(1990, 11, 2, 0, 0, 0, 0);
+		Timestamp fechacreacion = Timestamp.valueOf(datecreate);
 		
 		Reporte reporte = new Reporte( fechacreacion, descripcion, file,  name, state, conexion);
 		this.reporteDao.insertar(reporte);

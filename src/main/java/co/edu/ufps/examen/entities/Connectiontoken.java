@@ -148,4 +148,51 @@ public class Connectiontoken  {
 		return reporte;
 	}
 
+	public Connectiontoken(int id, String db, String host, String pass, short port, short state, String token,
+			String userdb, Typedb typedb, Usuario usuario, List<Reporte> reportes) {
+		super();
+		this.id = id;
+		this.db = db;
+		this.host = host;
+		this.pass = pass;
+		this.port = port;
+		this.state = state;
+		this.token = token;
+		this.userdb = userdb;
+		this.typedb = typedb;
+		this.usuario = usuario;
+		this.reportes = reportes;
+	}
+
+	public Connectiontoken(int id, String db, String host, String pass, short port, short state, String token,
+			String userdb, Typedb typedb, Usuario usuario) {
+		super();
+		this.id = id;
+		this.db = db;
+		this.host = host;
+		this.pass = pass;
+		this.port = port;
+		this.state = state;
+		this.token = token;
+		this.userdb = userdb;
+		this.typedb = typedb;
+		this.usuario = usuario;
+	}
+
+	public Connectiontoken(String db, String host, String pass, short port, short state, String token, String userdb,
+			Typedb typedb, Usuario usuario) {
+		super();
+		this.db = db;
+		this.host = host;
+		this.pass = pass;
+		this.port = port;
+		this.state = state;
+		this.token = token;
+		this.userdb = userdb;
+		this.typedb = typedb;
+		this.usuario = usuario;
+	}
+	
+	
+
 }
