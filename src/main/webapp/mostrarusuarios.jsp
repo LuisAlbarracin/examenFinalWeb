@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Gestión de Reportes</title>
+<title>Gestión de Usuarios</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -13,11 +13,11 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: tomato">
 			<div>
-                <a href="#" class="navbar-brand"> Gestión de Reportes </a>
+                <a href="#" class="navbar-brand"> Gestión de Usuarios </a>
             </div>
             
             <ul class="navbar-nav">
-            	<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Reportes</a></li>
+            	<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Usuarios</a></li>
             </ul>
 		
 		</nav>
@@ -32,52 +32,44 @@
                     <hr>
                     <div class="container text-left">
 
-                        <a href="<%=request.getContextPath()%>/new" class="btn btn-success">Agregar Nuevo Reporte</a>
+                        <a href="<%=request.getContextPath()%>/new" class="btn btn-success">Agregar Nuevo Usuario</a>
                     </div>
                     <br>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NAME</th>
-                                <th>FILE</th>
-                                <th>DATECREATE</th>
-                                <th>USUARIO</th>
+                                <th>NOMBRE</th>
+                                <th>EMAIL</th>
                                 <th>STATE</th>
-                                <th>DESCRIPCION</th>
-                                <th>TIPO DB</th>
+                                <th>PASS</th>
+                                <th>ROL</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!--   for (Todo todo: todos) {  -->
-                            <c:forEach var="reporte" items="${resportes}">
+                            <c:forEach var="usuario" items="${usuarios}">
 
                                 <tr>
                                     <td>
-                                        <c:out value="${reporte.id}" />
+                                        <c:out value="${usuario.id}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.name}" />
+                                        <c:out value="${usuario.usuario}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.file}" />
+                                        <c:out value="${usuario.email}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.datecreate}" />
-                                    </td>
-                                     <td>
-                                        <c:out value="${reporte.connectiontoken.usuario}" />
+                                        <c:out value="${usuario.state}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.state}" />
+                                        <c:out value="${usuario.pass}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.descripcion}" />
+                                        <c:out value="${usuario.rol.description}" />
                                     </td>
-                                    <td>
-                                        <c:out value="${reporte.connectiontoken.typedb}" />
-                                    </td>
-                                    <td><a href="edit?id=<c:out value='${reporte.id}' />">Editar</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${reporte.id}' />">Elimnar</a></td>
+                                    <td><a href="edit?id=<c:out value='${usuario.id}' />">Editar</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${usuario.id}' />">Eliminar</a></td>
                                 </tr>
                             </c:forEach>
                             <!-- } -->

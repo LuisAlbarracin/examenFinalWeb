@@ -1,54 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+<title>Gestión de Reportes</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<title>Reporte</title>
 </head>
 <body>
-
-	<section>
-		<form>
-
-			<div class="mb-3">
-				<label for="descripcion" class="form-label">Descripción</label> <input
-					type="text" class="form-control" id="descripcion"
-					name="descripcion" required>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark"
+			style="background-color: tomato">
+			<div>
+				<a href="#" class="navbar-brand"> Gestión de Reportes</a>
 			</div>
 
-			<div class="mb-3">
-				<label for="nombre" class="form-label">Nombre</label> <input
-					type="text" class="form-control" id="nombre" name="nombre" required>
+			<ul class="navbar-nav">
+				<li><a href="<%=request.getContextPath()%>/list"
+					class="nav-link">Reportes</a></li>
+			</ul>
+		</nav>
+	</header>
+	<br>
+	<div class="container col-md-5">
+		<div class="card">
+			<div class="card-body">
+
+				<c:if test="${reporte != null}">
+					<form action="update" method="post">
+				</c:if>
+				<c:if test="${reporte == null}">
+					<form action="insert" method="post">
+				</c:if>
+
+				<caption>
+					<h2>
+						<c:if test="${reporte != null}">
+                                    Editar Reporte
+                                </c:if>
+						<c:if test="${reporte == null}">
+                                    Agregar Nuevo Reporte
+                                </c:if>
+					</h2>
+				</caption>
+
+				<c:if test="${reporte != null}">
+					<input type="hidden" name="id"
+						value="<c:out value='${reporte.id}' />" />
+				</c:if>
+
+				<fieldset class="form-group">
+					<label>Nombre</label> <input type="text"
+						value="<c:out value='${reporte.name}' />" class="form-control"
+						name="name" required="required">
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label>Descripción</label> <input type="text"
+						value="<c:out value='${reporte.descripcion}' />"
+						class="form-control" name="descripcion">
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label>Estado</label> <input type="text"
+						value="<c:out value='${reporte.state}' />" class="form-control"
+						name="state">
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label>Archivo</label> <input type="text"
+						value="<c:out value='${reporte.file}' />" class="form-control"
+						name="file">
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label>Fecha</label> <input type="date"
+						value="<c:out value='${reporte.datecreate}' />" class="form-control"
+						name="datecreate">
+				</fieldset>
+				
+				 <select class="form-select" name="conexion" aria-label="Default select example">
+					<c:forEach var="conexion" items="${conexiones}">
+						<option value="<c:out value='${conexion.id}' />"><c:out value='${conexion.id}' /></option>
+					</c:forEach>
+				</select>
+
+				<button type="submit" class="btn btn-success">Guardar</button>
+				</form>
 			</div>
-
-			<div class="mb-3">
-				<label for="archivo" class="form-label">Archivo</label> <input
-					type="file" class="form-control" id="archivo" name="archivo"
-					required>
-			</div>
-
-			<div class="mb-3">
-				<label for="fecha-creacion" class="form-label">Fecha
-					Creación</label> <input type="date" class="form-control"
-					id="fecha-creacion" name="fecha-creacion" required>
-			</div>
-
-			<select class="form-select" aria-label="Default select example">
-				<option selected>Conexion</option>
-				<option value="1">Mensajeria</option>
-				<option value="2">reportes</option>
-			</select>
-		
-			<button type="submit" class="btn btn-primary">Guardar</button>
-		
-		</form>
-
-	</section>
+		</div>
+	</div>
 </body>
 </html>

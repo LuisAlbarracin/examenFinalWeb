@@ -144,6 +144,7 @@ public class SeguimientoServlet extends HttpServlet {
 		String filegenerate = request.getParameter("filegenerate");
 		String type = request.getParameter("type");
 		Timestamp dategenerate = Timestamp.valueOf(dategenerateId);		
+		
 		Reporte reporte = this.reporteDao.buscar(reporteId);
 		Seguimiento seguimiento = new Seguimiento(dategenerate, detailrequest, filegenerate, result, state, type, reporte);
 		this.seguimientoDao.insertar(seguimiento);

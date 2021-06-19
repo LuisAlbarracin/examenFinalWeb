@@ -63,6 +63,9 @@ public class UsuarioServlet extends HttpServlet {
 			case "/update":
 				actualizarUsuario(request, response);
 				break;
+			case "/login":
+				loginUsuario(request, response);
+				break;
 			default:
 				listUsuarios(request, response);
 				break;
@@ -160,6 +163,23 @@ public class UsuarioServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	private void loginUsuario(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		// TODO Auto-generated method stub
+
+		String usuarioN = request.getParameter("usuario");
+		String email = request.getParameter("email");
+		Integer rolId = Integer.parseInt(request.getParameter("rol"));
+		
+		Rol rol = rolDao.buscar(rolId);
+		
+		//Buscar al usuario
+		this.usuarioDao.buscar(rolId);
+
+
+		response.sendRedirect("list");
 	}
 
 }

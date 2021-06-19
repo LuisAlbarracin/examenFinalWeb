@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Gestión de Reportes</title>
+<title>Tokens de Conexioó</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -13,11 +13,11 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: tomato">
 			<div>
-                <a href="#" class="navbar-brand"> Gestión de Reportes </a>
+                <a href="#" class="navbar-brand"> Gestión de Tokens de Conexión</a>
             </div>
             
             <ul class="navbar-nav">
-            	<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Reportes</a></li>
+            	<li><a href="<%=request.getContextPath()%>/list" class="nav-link">Tokens de Conexión</a></li>
             </ul>
 		
 		</nav>
@@ -28,56 +28,60 @@
                 <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
                 <div class="container">
-                    <h3 class="text-center">Listado de Usuarios</h3>
+                    <h3 class="text-center">Listado de Tokens de Conexión</h3>
                     <hr>
                     <div class="container text-left">
 
-                        <a href="<%=request.getContextPath()%>/new" class="btn btn-success">Agregar Nuevo Reporte</a>
+                        <a href="<%=request.getContextPath()%>/new" class="btn btn-success">Agregar Nuevo Token de Conexión</a>
                     </div>
                     <br>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NAME</th>
-                                <th>FILE</th>
-                                <th>DATECREATE</th>
-                                <th>USUARIO</th>
+                                <th>DB</th>
+                                <th>HOST</th>
+                                <th>PORT</th>
                                 <th>STATE</th>
-                                <th>DESCRIPCION</th>
-                                <th>TIPO DB</th>
+                                <th>TOKEN</th>
+                                <th>USERDB</th>
+                                <th>TYPEDB</th>
+                                <th>USUARIO</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!--   for (Todo todo: todos) {  -->
-                            <c:forEach var="reporte" items="${resportes}">
+                            <c:forEach var="connectiontoken" items="${connectiontokens}">
 
                                 <tr>
                                     <td>
-                                        <c:out value="${reporte.id}" />
+                                        <c:out value="${connectiontoken.id}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.name}" />
+                                        <c:out value="${connectiontoken.db}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.file}" />
+                                        <c:out value="${connectiontoken.host}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.datecreate}" />
+                                        <c:out value="${connectiontoken.state}" />
+                                    </td>
+                                    <td>
+                                    	<c:out value="${connectiontoken.token}" />
                                     </td>
                                      <td>
-                                        <c:out value="${reporte.connectiontoken.usuario}" />
+                                    	<c:out value="${connectiontoken.userdb}" />
+                                    </td>
+                                     <td>
+                                    	<c:out value="${connectiontoken.token}" />
                                     </td>
                                     <td>
-                                        <c:out value="${reporte.state}" />
+                                    	<c:out value="${connectiontoken.typedb}" />
                                     </td>
-                                    <td>
-                                        <c:out value="${reporte.descripcion}" />
+                                     <td>
+                                    	<c:out value="${connectiontoken.usuario.usuario}" />
                                     </td>
-                                    <td>
-                                        <c:out value="${reporte.connectiontoken.typedb}" />
-                                    </td>
-                                    <td><a href="edit?id=<c:out value='${reporte.id}' />">Editar</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${reporte.id}' />">Elimnar</a></td>
+                                    <td><a href="edit?id=<c:out value='${connectiontoken.id}' />">Editar</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${connectiontoken.id}' />">Elimnar</a></td>
                                 </tr>
                             </c:forEach>
                             <!-- } -->
